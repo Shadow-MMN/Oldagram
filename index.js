@@ -1,30 +1,36 @@
-const posts = [
-    {
-        name: "Vincent van Gogh",
-        username: "vincey1853",
-        location: "Zundert, Netherlands",
-        avatar: "images/avatar-vangogh.jpg",
-        post: "images/post-vangogh.jpg",
-        comment: "just took a few mushrooms lol",
-        likes: 21
-    },
-    {
-        name: "Gustave Courbet",
-        username: "gus1819",
-        location: "Ornans, France",
-        avatar: "images/avatar-courbet.jpg",
-        post: "images/post-courbet.jpg",
-        comment: "i'm feelin a bit stressed tbh",
-        likes: 4
-    },
-        {
-        name: "Joseph Ducreux",
-        username: "jd1735",
-        location: "Paris, France",
-        avatar: "images/avatar-ducreux.jpg",
-        post: "images/post-ducreux.jpg",
-        comment: "gm friends! which coin are YOU stacking up today?? post below and WAGMI!",
-        likes: 152
-    }
-]
+import { posts } from "./data.js";
+const everything = document.getElementById("everything")
+
+
+
+function render(theArray){
+    let everythingTesting = ''
+    const arrays = theArray.map(array => {
+        const {name, username, location, avatar, post, comment, likes} = array
+            everythingTesting += `  <main>
+                <section id="first-section">
+                    <img class="profile-pic dp" src="${avatar}">
+                    <div class="head-txt">
+                    <h1 class="dp-txt">${name}</h1>
+                    <p class="dp-txt2">${location}</p>
+                    </div>
+                </section>
+                <section id="main-image">
+                    <img class="body-img" src="${post}">
+                </section>
+                <section class="interaction">
+                    <img src="/images/icon-heart.png" alt="like">
+                    <img src="/images/icon-comment.png" alt="comment">
+                    <img src="/images/icon-dm.png" alt="Direct message">
+                </section>
+            </main>
+            <footer id="footer">
+                    <h1>${likes} Likes</h1>
+                    <p> <span class="span">${username}</span>${comment}</p>
+            </footer>
+            <hr width="100%">`           
+    }).join('')
+    everything.innerHTML = everythingTesting
+}
+render(posts)
 
