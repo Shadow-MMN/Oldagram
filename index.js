@@ -1,8 +1,5 @@
 import { posts } from "./data.js";
 const everything = document.getElementById("everything")
-
-
-
 function render(theArray){
     let everythingTesting = ''
     const arrays = theArray.map(array => {
